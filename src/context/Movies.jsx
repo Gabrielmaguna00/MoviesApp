@@ -1,14 +1,12 @@
 import { useState, createContext, useContext } from "react";
-import getMovies from "../utils/InitialState";
+import {Data} from "../utils/InitialState";
 import { firestore as db } from "../firebase/index";
-import { doc, getDoc, updateDoc, arrayUnion, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const MoviesContext = createContext();
 
-const InitialState = await getMovies();
-
 export const MoviesProvider = ({ children }) => {
-  const [movies, setMovies] = useState(InitialState);
+  const [movies, setMovies] = useState(Data);
 
   const setMoviesReview = async (movieId, user, review) => {
     const movieRef = doc(db, "movies", movieId.toString());

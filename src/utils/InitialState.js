@@ -1,8 +1,6 @@
 import axios from "axios";
 
-// const favouriteMovies= async ()=>{}
-
-const getMovies = async () => {
+export const getMovies = async () => {
   let movies = {
     popular: await (async function () {
       const aux = await axios.get(
@@ -45,7 +43,7 @@ const getMovies = async () => {
       return await aux.data.results;
     })(),
   };
-  // console.log("movies:", movies);
   return movies;
 };
-export default getMovies;
+
+export const Data =await getMovies()
