@@ -13,7 +13,6 @@ const Main = ({setLoading}) => {
       setMovie(movieMain);
     }
   };
-  console.log("movie:", movie);
   useEffect(() => {
     selectMovie();
   }, []);

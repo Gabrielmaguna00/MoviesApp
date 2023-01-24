@@ -1,5 +1,5 @@
 import { useState, createContext, useContext } from "react";
-import {Data} from "../utils/InitialState";
+import { Data } from "../utils/InitialState";
 import { firestore as db } from "../firebase/index";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
@@ -27,13 +27,17 @@ export const MoviesProvider = ({ children }) => {
   };
 
   const favouritesMovies = async (userId) => {
+    console.log(userId);
     const docRef = doc(db, "users", userId);
     const document = (await getDoc(docRef)).data();
+    console.log(document);
     if (document.movieFavourites) {
       setMovies({ ...movies, favouriteMovies: document.movieFavourites });
+    }else{
+      setMovies({...movies, favouriteMovies:[]})
     }
   };
-
+  console.log(movies);
   return (
     <MoviesContext.Provider
       value={{

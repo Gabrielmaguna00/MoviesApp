@@ -50,7 +50,7 @@ export default function CardMovie({
         usersCollection,
         { movieFavourites: moviesFav },
         { merge: true }
-      ).then((e) => setLike(false), favouritesMovies());
+      ).then((e) => setLike(false), favouritesMovies(user.uid));
     }
   };
 

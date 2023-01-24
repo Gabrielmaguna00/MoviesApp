@@ -13,7 +13,6 @@ export default function WatchTrailer({ showTrailer, setShowTrailer, trailer }) {
     let elementHeight = elementStyle.getPropertyValue("height");
     opts.width = elementWidth.slice(0, -2) - 50;
     opts.height = elementHeight.slice(0, -2) - 50;
-    console.log(opts);
     return <YouTube videoId={trailer && trailer.key} opts={opts} />;
   };
   return (

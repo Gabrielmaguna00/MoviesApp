@@ -11,12 +11,13 @@ function Home() {
   const [loading, setLoading]=useState(true)
   const { movies, favouritesMovies } = useMovieContext();
   const { user } = useAuthContext();
-  const getFavouritesMovies = () => {
+  console.log(user);
+  const getFavouritesMovies = (user) => {
     if (user && user.hasOwnProperty("uid")) {
       favouritesMovies(user.uid);
     }
   };
-  useEffect(()=>getFavouritesMovies(),[user])
+  useEffect(()=>getFavouritesMovies(user),[user])
   return (
     <div >
       <Main setLoading={setLoading}/>
